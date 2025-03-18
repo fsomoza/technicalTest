@@ -1,6 +1,7 @@
 package com.example.test.price.infrastructure.adapters.repositories.jparepository.entities;
 
 
+import com.example.test.price.domain.models.Price;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -75,4 +76,19 @@ public class JpaPriceEntity {
     public String getCurrency() {
         return currency;
     }
+
+
+    public Price toDomainModel() {
+        return new Price(
+                this.brandId,
+                this.startDate,
+                this.endDate,
+                this.priceList,
+                this.productId,
+                this.priority,
+                this.price,
+                this.currency
+        );
+    }
+
 }
