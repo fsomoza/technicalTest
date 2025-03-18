@@ -1,4 +1,4 @@
-idx_price_datetime_product_brand TABLE price (
+CREATE TABLE price (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     brand_id BIGINT NOT NULL,
     start_date TIMESTAMP NOT NULL,

@@ -7,13 +7,13 @@ public class Price{
     Long brandId;
     LocalDateTime startDate;
     LocalDateTime endDate;
-    Integer priceList;
+    Long priceList;
     Long productId;
     Integer priority;
     BigDecimal price;
     String currency;
 
-    public Price(Long brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, Long productId, Integer priority, BigDecimal price, String currency) {
+    public Price(Long brandId, LocalDateTime startDate, LocalDateTime endDate, Long priceList, Long productId, Integer priority, BigDecimal price, String currency) {
         this.brandId = brandId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -36,7 +36,7 @@ public class Price{
         return endDate;
     }
 
-    public Integer getPriceList() {
+    public Long getPriceList() {
         return priceList;
     }
 
