@@ -23,7 +23,7 @@ public interface JpaPriceRepository extends JpaRepository<JpaPriceEntity, Long> 
             "WHERE p.productId = :productId " +
             "AND p.brandId = :brandId " +
             "AND :dateTime BETWEEN p.startDate AND p.endDate " +
-            "ORDER BY p.priority DESC")
+            "ORDER BY p.priority DESC LIMIT 1")
     Optional<JpaPriceEntity> findApplicablePriceAt(
             @Param("dateTime") LocalDateTime dateTime,
             @Param("productId") Long productId,
