@@ -1,9 +1,6 @@
 package com.example.test.price.domain.ports.in;
-
 import com.example.test.price.domain.models.Price;
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 public interface PricePublicApiPort {
     /**

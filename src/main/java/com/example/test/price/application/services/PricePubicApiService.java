@@ -1,5 +1,6 @@
 package com.example.test.price.application.services;
 
+import com.example.test.price.domain.exceptions.PriceNotFoundException;
 import com.example.test.price.domain.models.Price;
 import com.example.test.price.domain.ports.in.PricePublicApiPort;
 import com.example.test.price.domain.ports.out.PriceRepositoryPort;
@@ -43,7 +44,8 @@ public class PricePubicApiService implements PricePublicApiPort {
     @Override
     public Price findApplicablePriceAtV1(LocalDateTime dateTime, Long productId, Long brandId) {
 
-        return priceRepositoryPort.findApplicablePriceAt(dateTime, productId, brandId).orElse(null);
+        return priceRepositoryPort.findApplicablePriceAt(dateTime, productId, brandId)
+                .orElseThrow(() -> new PriceNotFoundException(productId, brandId));
 
     }
 
@@ -52,6 +54,6 @@ public class PricePubicApiService implements PricePublicApiPort {
         List<Price> priceList = priceRepositoryPort.findApplicablePricesAt(dateTime, productId, brandId);
         return priceList.stream()
                 .max(Comparator.comparing(Price::getPriority))
-                .orElse(null);
+                .orElseThrow(() -> new PriceNotFoundException(productId, brandId));
     }
 }
