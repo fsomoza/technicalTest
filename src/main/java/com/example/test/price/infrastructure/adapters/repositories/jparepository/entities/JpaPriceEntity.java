@@ -39,7 +39,7 @@ public class JpaPriceEntity {
     @Column
     private String currency;
 
-    protected JpaPriceEntity() {}
+    public JpaPriceEntity() {}
 
     public Long getId() {
         return id;
